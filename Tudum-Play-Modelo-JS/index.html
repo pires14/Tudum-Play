@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tudum-Play</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <a class="logo" href="#">TuDum-Play</a>
+  <span class="clapper">🎬</span>
+
+  <div class="header-actions">
+    <button id="searchButton" class="icon-btn search-icon" aria-label="Pesquisar"></button>
+    <button id="profileButton" class="icon-btn user-icon" aria-label="Abrir assistente" aria-expanded="false"></button>
+  </div>
+</header>
+
+<div id="searchBox" class="search-box">
+  <div class="search-row">
+    <input id="searchInput" type="search" placeholder="Pesquisar filmes e séries...">
+    <button id="closeSearch" type="button">×</button>
+  </div>
+  <div id="searchResults" class="search-results"></div>
+</div>
+
+<main>
+  <section class="hero">
+    <div class="hero-copy">
+      <p class="eyebrow">TUDUM-PLAY APRESENTA</p>
+      <h1 id="featuredTitle"></h1>
+      <p id="featuredSubtitle" class="meta"></p>
+      <p id="featuredDescription" class="description"></p>
+
+      <div class="hero-actions">
+        <button id="watchButton" class="action-link" type="button">assistir</button>
+        <button id="infoButton" class="action-link" type="button">mais info</button>
+      </div>
+    </div>
+
+    <div id="featuredPoster" class="hero-image" role="img"></div>
+  </section>
+
+  <section class="catalog">
+    <div class="catalog-heading">
+      <h2>Populares agora</h2>
+      <p>Clique em um título para colocá-lo em destaque.</p>
+    </div>
+
+    <div class="carousel-wrap">
+      <button class="carousel-button previous" type="button" aria-label="Anterior">‹</button>
+      <div id="movieCarousel" class="cards"></div>
+      <button class="carousel-button next" type="button" aria-label="Próximo">›</button>
+    </div>
+  </section>
+</main>
+
+<!-- Painel do assistente -->
+<div id="overlay" class="overlay" hidden></div>
+
+<aside id="assistantPanel" class="assistant-panel" aria-hidden="true">
+  <div class="panel-header">
+    <h2>TuDum AI</h2>
+    <button id="closeButton" type="button" aria-label="Fechar">×</button>
+  </div>
+
+  <p class="panel-intro">Peça uma recomendação de acordo com o que você quer assistir.</p>
+
+  <div class="suggestions">
+    <button type="button" data-message="Quero uma animação">animação</button>
+    <button type="button" data-message="Quero ação">ação</button>
+    <button type="button" data-message="Quero romance">romance</button>
+    <button type="button" data-message="Quero uma comédia">comédia</button>
+  </div>
+
+  <div class="recommendation">
+    <div id="resultPoster" class="result-poster"></div>
+    <div class="result-content">
+      <h3 id="resultTitle">Sua recomendação</h3>
+      <p id="resultDetails"></p>
+      <p id="resultDescription"></p>
+      <button id="resultWatch" type="button">onde assistir</button>
+    </div>
+  </div>
+
+  <form id="messageForm" class="message-form">
+    <input id="messageInput" type="text" placeholder="Ex.: quero um filme de ação" autocomplete="off">
+    <button type="submit">Enviar</button>
+  </form>
+</aside>
+
+<!-- Modal -->
+<div id="modal" class="modal" hidden>
+  <div class="modal-card" role="dialog" aria-modal="true">
+    <div class="modal-header">
+      <h2 id="modalTitle"></h2>
+      <button id="modalClose" type="button" aria-label="Fechar">×</button>
+    </div>
+    <div id="modalBody"></div>
+  </div>
+</div>
+
+<div class="ai-badge">AI</div>
+
+<script src="script.js"></script>
+</body>
+</html>
